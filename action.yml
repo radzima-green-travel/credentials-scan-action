@@ -1,0 +1,9 @@
+# action.yml
+name: 'AWS creds leakage PR check'
+description: 'Scan a code for AWS credentials leakage'
+branding:
+  icon: 'check'
+  color: 'green'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

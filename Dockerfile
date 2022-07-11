@@ -6,6 +6,7 @@ LABEL repository="https://github.com/radzima-green-travel/credentials-scan-actio
 LABEL homepage="https://github.com/radzima-green-travel/credentials-scan-action"
 LABEL maintainer="Radzima green travel"
 
+RUN apk add --update --no-cache openssh
 RUN apk add --update make
 RUN apk --no-cache add git
 RUN git clone git@github.com:awslabs/git-secrets.git

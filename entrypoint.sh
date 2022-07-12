@@ -1,5 +1,4 @@
 #!/bin/sh -l
 
-git secrets --scan -r /github/workspace
-
-
+git secrets --register-aws
+git secrets --scan -r

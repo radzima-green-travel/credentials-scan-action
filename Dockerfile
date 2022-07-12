@@ -10,11 +10,8 @@ RUN apk add --update make
 RUN apk add --update bash
 RUN apk --no-cache add git
 RUN git clone https://github.com/awslabs/git-secrets.git
-WORKDIR git-secrets
+WORKDIR ./git-secrets
 RUN make install
-WORKDIR /
-RUN ls -la
-RUN git secrets --register-aws
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh

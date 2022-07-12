@@ -6,12 +6,14 @@ LABEL repository="https://github.com/radzima-green-travel/credentials-scan-actio
 LABEL homepage="https://github.com/radzima-green-travel/credentials-scan-action"
 LABEL maintainer="Radzima green travel"
 
-RUN apk add --update --no-cache openssh
 RUN apk add --update make
+RUN apk add --update bash
 RUN apk --no-cache add git
-RUN git clone git@github.com:awslabs/git-secrets.git
-RUN cd git-secrets
+RUN git clone https://github.com/awslabs/git-secrets.git
+WORKDIR git-secrets
 RUN make install
+WORKDIR /
+RUN ls -la
 RUN git secrets --register-aws
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
